@@ -1,5 +1,3 @@
-from http import HTTPStatus
-
 from fastapi import FastAPI, status
 from fastapi.responses import RedirectResponse
 
