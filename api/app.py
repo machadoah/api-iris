@@ -3,7 +3,6 @@ from fastapi.responses import RedirectResponse
 
 
 import joblib
-import numpy as np
 
 from api.schemas import PredictRequest, Message
 from data.species import species_map
@@ -34,16 +33,14 @@ def read_root():
     name="predição apí-iris",
 )
 def predict(request: PredictRequest):
-    data = np.array(
+    data = [
         [
-            [
-                request.sepal_length,
-                request.sepal_width,
-                request.petal_length,
-                request.petal_width,
-            ]
+            request.sepal_length,
+            request.sepal_width,
+            request.petal_length,
+            request.petal_width,
         ]
-    )
+    ]
 
     prediction = model.predict(data)
 
